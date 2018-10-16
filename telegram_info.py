@@ -1,4 +1,9 @@
 
+
+# 利用 telegram 聊天群組資訊，觀察虛擬貨幣開始販售後的社群熱度和最終的募資金額的關係
+# message_list=[Token Sale開始時的訊息數, Token Sale過30天的訊息數, 不重複發言數]
+
+
 import requests, csv, re, time, random, os, urllib, datetime, codecs
 from bs4 import BeautifulSoup
 from telethon.tl.functions.messages import GetHistoryRequest
@@ -213,46 +218,6 @@ with open(os.path.expanduser("~/Desktop/telegram message/telegram_message_error.
 		writer.writerow(ele)
 
 
-
-
-
-
-"""
-ii = 0
-while ii<= 5:
-	try:
-		client = TelegramClient('Hank', api_id, api_hash)
-		client.start()
-		messages = client.get_messages("altplanet_ico", limit=None, offset_date=datetime.date(2018, 6, 10), wait_time=0)
-		
-		print(messages)
-		final_list = []
-		for index in range(0, len(messages)):
-			id = messages[index]
-			message = messages[index].message
-			date = messages[index].date
-			list = [id, message, date] 
-			final_list.append(list)
-		with open("/Users/harry/Desktop/telegram message/message_24hr_{}.csv".format("altplanet_ico"), "w", newline="") as csvfile:
-			writer = csv.writer(csvfile)
-			if not final_list:
-				break
-			else:
-				for i in final_list:
-					writer.writerow(i)
-		print("altplanet_ico", "end", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-		time.sleep(2)
-		break
-	
-	except RuntimeError:
-		print("altplanet_ico", "rerun", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-		time.sleep(5)
-		ii += 1
-	
-	except:
-		traceback.print_exc()
-		ii += 1
-"""
 
 
 
